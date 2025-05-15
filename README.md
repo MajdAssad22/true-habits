@@ -1,4 +1,4 @@
-# True Habit
+# True Habits
 
 A minimalist and aesthetic habit tracker web app designed to help you build consistent, meaningful habits for personal growth.
 
