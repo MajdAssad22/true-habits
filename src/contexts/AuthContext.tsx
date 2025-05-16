@@ -32,10 +32,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: "select_account",
+    });
+
     try {
       await signInWithPopup(auth, provider);
     } catch (error) {
       console.error("Error signing in with Google:", error);
+      // Handle the error appropriately
+      if (error instanceof Error) {
+        if (error.message.includes("popup-closed-by-user")) {
+          // User closed the popup, no need to show error
+          return;
+        }
+        // Handle other errors
+        console.error("Authentication error:", error.message);
+      }
     }
   };
 
