@@ -6,7 +6,7 @@ export interface Habit {
   createdAt: Date;
   userId: string;
   streak: number;
-  lastCompleted?: Date;
+  lastCompleted?: Date | null;
 }
 
 export interface HabitCompletion {
